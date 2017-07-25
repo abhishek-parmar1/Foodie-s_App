@@ -1,21 +1,101 @@
+<!-- restaurant controller starts here -->
 <div ng-controller="restaurantsController" >
+    <!-- image section starts  here -->
     <div  class="row">
         <div class="col-sm-12" id="restaurant-section-image">
             <h1 id="restaurant-section-image-text">Find the best restaurants in town</h1>
         </div>
     </div>
+    <!-- image section ends  here -->
+    <!-- search section starts  here -->
     <div  class="row search-restaurant-section">
         <div class="col-sm-6 col-sm-offset-2" >
             <input type="text" placeholder="search.." ng-model="query" class="search-restaurant">
         </div>
         <div class="col-sm-2">
-            <button>Search</button>
+            <button class="search-restaurant-button">Search&nbsp;<i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
     </div>
+    <!-- search section ends  here -->
+    <!-- restaurant list section starts  here -->
     <div class="row restaurant-list-section">
-        <div class="col-sm-8 col-sm-offset-2">
-            <p>dxafscgvhkbld njlhihjbkguyghbassssssssssssssssssssssssssssssssssssssss sssssssssssssssssssssssssssssssssssssssssssssssssss sssssssssaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa
-            </p>
+        <div class="col-sm-8 col-sm-offset-2" ng-repeat="restaurant in restaurants | filter : query">
+            <!-- restaurant item starts-->
+            <div class="panel panel-default items">
+              <!-- item heading starts -->
+              <div class="panel-heading">
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <img src="assets/images/restaurant_images/{{restaurant.image}}">
+                      </div>
+                      <div class="col-sm-8">
+                          <h2 id="restaurant-name"><strong>{{ restaurant.restaurantName }}</strong></h2>
+                          <h4><strong>{{ restaurant.restaurantArea }}</strong></h4>
+                          <p class="text-colour-grey">{{ restaurant.restaurantLocation }}</p>
+                      </div>
+                  </div>
+              </div>
+              <!-- item heading ends -->
+              <!-- item body starts -->
+              <div class="panel-body">
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <p class="text-colour-grey">CUISINES:</p>
+                      </div>
+                      <div class="col-sm-8">
+                          <p>{{ restaurant.cuisines }}</p>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <p class="text-colour-grey">COST FOR TWO:</p>
+                      </div>
+                      <div class="col-sm-8">
+                          <p>₹{{ restaurant.costForTwo | number }}</p>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <p class="text-colour-grey">HOURS:</p>
+                      </div>
+                      <div class="col-sm-8">
+                          <p>{{ restaurant.hours }}</p>
+                      </div>
+                  </div>
+                  <div class="row" ng-if="restaurant.featuredIn">
+                      <div class="col-sm-4">
+                          <p class="text-colour-grey">FEATURED IN:</p>
+                      </div>
+                      <div class="col-sm-8">
+                          <p>{{ restaurant.featuredIn }}</p>
+                      </div>
+                  </div>
+                  <div id="ratting-tag"><strong>{{restaurant.rating}}</strong></div>
+              </div>
+              <!-- item body ends -->
+              <!-- item footer starts -->
+              <div class="panel-footer">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default">
+                        <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;<strong>Call</strong>
+                    </button>
+                  </div>
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default">Famous Dish</button>
+                  </div>
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;<strong>Book a table</strong>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!-- item footer ends -->    
+            </div>
+            <!-- restaurant item ends-->
         </div>
     </div>
+    <!-- restaurant list section starts  here -->
 </div>
+<!-- restaurant controller ends here -->

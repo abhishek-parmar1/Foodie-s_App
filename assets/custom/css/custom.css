@@ -20,6 +20,7 @@ button{
 /* content styles starts */
 #content{
     margin-top: 70px;
+    margin-bottom: 60px;
 }
 /* content styles ends */
 /* login form styles starts*/
@@ -46,11 +47,36 @@ input.ng-dirty.ng-invalid{
     color: white;
     font-weight: bolder;
 }
-.search-restaurant{
+.search-restaurant,
+.search-restaurant-button{
     width: 100%;
 }
 .search-restaurant-section{
     margin-top: 15px;
+}
+div[class="row restaurant-list-section"]{
+    margin-top: 20px;
+}
+#restaurant-name{
+    color: red;
+}
+.text-colour-grey{
+    color: dimgrey;
+}
+.items{
+    position: relative;
+}
+#ratting-tag{
+    background-color: green;
+    color: white;
+    width: 40px;
+    height: 30px;
+    padding: 5px 0px;
+    padding-left: 10px;
+    border-radius: 5px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
 }
 /* restaurant section ends starts*/
 /* footer style starts */

@@ -1,0 +1,50 @@
+<html ng-app="foodiesApp">
+    <head>
+        <title>Foodies App</title>
+        <link href="assets/icons/icon.png" rel="icon">
+        
+        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/custom/css/custom.css" rel="stylesheet">
+        
+        <script type="text/javascript" src="assets/angular/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js">
+        </script>
+        <script type="text/javascript" src="assets/custom/js/custom.js"></script>
+    </head>
+    <body>
+        
+        <div class="container-fluid">
+            <!-- header starts here -->
+            <div class="row header">
+                <nav class="navbar navbar-default navbar-fixed-top">
+                  <div class="container">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><img src="assets/icons/icon.png" width="60px" id="header-image" class="pull-left"></li>
+                        <li class="active"><a href="#"><h4><strong>Welcome Foodie</strong></h4></a></li>
+                        <li><a href="#"><h4>About</h4></a></li>
+                        <li><a href="#"><h4>Contact</h4></a></li>
+                    </ul>
+                  </div>
+                </nav> 
+            </div>
+            <!-- header ends here -->
+            <!-- content section starts here -->
+            <div class="row" id="content">
+                <div class="container" ng-view>
+                    
+                </div>
+            </div>
+            <!-- content section ends here -->
+            <!-- footer starts here -->
+            <div class="row footer">
+                <div class="container">
+                    <div class="navbar navbar-default navbar-fixed-bottom">
+                        <h3 class="text-center">Designed &amp; Developed By &copy; Abhishek</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- footer ends here-->
+        </div>
+    </body>
+
+</html>

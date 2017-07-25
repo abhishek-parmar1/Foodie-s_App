@@ -1,0 +1,61 @@
+body{
+    background-color: beige;
+}
+.active{
+    background-color: beige;
+}
+input,
+button{
+    border-radius: 5px;
+}
+/* header styles starts */
+.navbar-fixed-top{
+    background-color: aqua;
+}
+#header-image{
+    margin-top: 5px;
+    margin-right: 20px;
+}
+/* header styles ends */
+/* content styles starts */
+#content{
+    margin-top: 70px;
+}
+/* content styles ends */
+/* login form styles starts*/
+.login-form{
+    border: 2px solid black;
+    padding: 30px;
+    border-radius: 5px;
+}
+input.ng-dirty.ng-invalid{
+    border: 2px solid red;
+}
+/* login form styles ends*/
+/* restaurant section styles starts*/
+#restaurant-section-image{
+    background-image: url(../../images/restaurants_bg.jpg);
+    height: 400px;
+    background-position: center;
+    position: relative;
+}
+#restaurant-section-image-text{
+    position: absolute;
+    top:130px;
+    left: 300px;
+    color: white;
+    font-weight: bolder;
+}
+.search-restaurant{
+    width: 100%;
+}
+.search-restaurant-section{
+    margin-top: 15px;
+}
+/* restaurant section ends starts*/
+/* footer style starts */
+.navbar-fixed-bottom{
+    background-color: black;
+    color: white;
+}
+/* footer style ends */

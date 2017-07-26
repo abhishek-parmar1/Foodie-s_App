@@ -33,14 +33,14 @@ input.ng-dirty.ng-invalid{
     border: 2px solid red;
 }
 /* login form styles ends*/
-/* restaurant section styles starts*/
-#restaurant-section-image{
+/* home section styles starts*/
+#home-section-image{
     background-image: url(../../images/restaurants_bg.jpg);
     height: 400px;
     background-position: center;
     position: relative;
 }
-#restaurant-section-image-text{
+#home-section-image-text{
     position: absolute;
     top:130px;
     left: 300px;
@@ -54,19 +54,23 @@ input.ng-dirty.ng-invalid{
 .search-restaurant-section{
     margin-top: 15px;
 }
-div[class="row restaurant-list-section"]{
+div[class="row restaurant-list-section"],
+#current-restaurant-detalis{
     margin-top: 20px;
 }
 #restaurant-name{
     color: red;
+    text-decoration: none;
 }
 .text-colour-grey{
     color: dimgrey;
 }
-.items{
+.items,
+.item{
     position: relative;
 }
-#ratting-tag{
+#ratting-tag,
+#current-ratting-tag{
     background-color: green;
     color: white;
     width: 40px;
@@ -78,7 +82,7 @@ div[class="row restaurant-list-section"]{
     right: 15px;
     top: 15px;
 }
-/* restaurant section ends starts*/
+/* home section ends starts*/
 /* footer style starts */
 .navbar-fixed-bottom{
     background-color: black;

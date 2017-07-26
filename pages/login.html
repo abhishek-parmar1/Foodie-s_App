@@ -12,20 +12,24 @@
             <div class="form-group">
                <label for="login-input-email">Email address</label>
                 <input type="email" class="form-control" name="userEmail" id="login-input-email" placeholder="Email" required ng-model="user.email">
+                <!-- validate email starts -->
                 <div ng-if="loginForm.userEmail.$dirty">
                     <div ng-if="loginForm.userEmail.$error.email">Enter a valid email</div>
                     <div ng-if="loginForm.userEmail.$error.required">Email is required</div>
                 </div>    
+                <!-- validate email ends -->
             </div>
             
             <!-- password inputt field -->
             <div class="form-group">
                 <label for="login-input-password">Password</label>
                 <input type="password" class="form-control" name="userPassword" id="login-input-password" placeholder="Password" required minlength="6" ng-model="user.password">
+                <!-- validate password starts -->
                 <div ng-if="loginForm.userPassword.$dirty">
                     <div ng-if="loginForm.userPassword.$error.required">Password is required</div>
                     <div ng-if="loginForm.userPassword.$error.minlength">Minimum 6 characters required</div>
-                </div>    
+                </div>
+                <!-- validate password ends -->
             </div>
           
             <!-- submit button -->

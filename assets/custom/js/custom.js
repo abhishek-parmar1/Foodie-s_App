@@ -3,11 +3,17 @@ var foodiesApp = angular.module('foodiesApp',['ngRoute']);
 
 // creating the urls
 foodiesApp.config(function ($routeProvider){
+        // html  url
         $routeProvider.when('/', {
             templateUrl : 'pages/login.html',
         });
+        // home page url
         $routeProvider.when('/home', {
-            templateUrl : 'pages/restaurants.html',
+            templateUrl : 'pages/home.html',
+        });
+        // restaurant  page url (dynamic url)
+        $routeProvider.when('/restaurant/:restaurantIndex', {
+            templateUrl : 'pages/restaurant.html',
         });
 });
 
@@ -82,15 +88,14 @@ foodiesApp.service('restaurantsService', function() {
             hours : '12 Noon to 3:30 PM, 7 PM to 12 Midnight (Mon-Sun)',
             featuredIn : 'Great buffets, Trending this week',
             image : 'source5.jpg',
-            rating : 4.5,
-			famousDish: {
-				name: 'Bean Salad',
-				url: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
-			}
+            rating : 4.5
+			//famousDish: {
+				//name: 'Bean Salad',
+				//url: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+			//}
 		}
 	];
 });
-
 
 // login controller section
 foodiesApp.controller('loginController',function($scope,$location){
@@ -102,7 +107,31 @@ foodiesApp.controller('loginController',function($scope,$location){
 });
 
 // restaurants controller section
-foodiesApp.controller('restaurantsController',function($scope,restaurantsService){
+foodiesApp.controller('homeController',function($scope,restaurantsService){
+    // take array of objects from service to show details
     $scope.restaurants = restaurantsService.restaurants;
 });
+
+// restaurants controller section
+foodiesApp.controller('restaurantController',function($scope,restaurantsService,$routeParams){
+    
+    // take array of objects from service to get restaurant details
+    var restaurants = restaurantsService.restaurants;
+    // take object of current restaurant
+    $scope.restaurant = restaurants[$routeParams.restaurantIndex];
+    // flag variable to show famous dish section
+    $scope.famousDishFlag = false;
+    // toggle flag variable to show famous dish section
+    $scope.showFamousDish = function(){
+        if($scope.famousDishFlag == false)
+            $scope.famousDishFlag = true;
+        else
+            $scope.famousDishFlag = false;
+    }
+    $scope.getIngredients = function(famousDishUrl)
+    {
+        console.log(famousDishUrl);
+    }
+});
+
 

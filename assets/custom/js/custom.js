@@ -30,8 +30,8 @@ foodiesApp.service('restaurantsService', function() {
             image : 'source1.jpg',
             rating : 4.1,
 			famousDish: {
-				name: 'Bean Salad',
-				url: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+				name: 'Chicken Barbecue',
+				url: 'https://0bba85283010b328c484-f139c7401b3658260f434c192b129add.ssl.cf3.rackcdn.com/bombaymixonline.com/manage/manage_uploads/upload/phpUI7Htn.png'
 			}
 		},
         {
@@ -46,7 +46,7 @@ foodiesApp.service('restaurantsService', function() {
             rating : 4.4,
 			famousDish: {
 				name: 'Bean Salad',
-				url: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+				url: 'http://importmex.net/wp-content/uploads/2014/12/slide3.jpg'
 			}
 		},
         {
@@ -58,11 +58,7 @@ foodiesApp.service('restaurantsService', function() {
             hours : '12:30 PM to 2:45 PM, 7 PM to 11:45 PM (Mon-Sun)',
             featuredIn : 'Legendary outlets, Trending this week',
             image : 'source3.jpg',
-            rating : 4.2,
-			famousDish: {
-				name: 'Bean Salad',
-				url: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
-			}
+            rating : 4.2
 		},
         {
 			restaurantName : 'Diggin',
@@ -75,8 +71,8 @@ foodiesApp.service('restaurantsService', function() {
             image : 'source4.jpg',
             rating : 4.3,
 			famousDish: {
-				name: 'Bean Salad',
-				url: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+				name: 'Pepperoni Pizza',
+				url: 'http://www.achnlouspizzainc.com/img/6239/686.png'
 			}
 		},
         {
@@ -88,11 +84,11 @@ foodiesApp.service('restaurantsService', function() {
             hours : '12 Noon to 3:30 PM, 7 PM to 12 Midnight (Mon-Sun)',
             featuredIn : 'Great buffets, Trending this week',
             image : 'source5.jpg',
-            rating : 4.5
-			//famousDish: {
-				//name: 'Bean Salad',
-				//url: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
-			//}
+            rating : 4.5,
+			famousDish: {
+				name: "McVeggie Burger",
+				url: 'http://nisataifesi.com/wp-content/uploads/2014/11/fast_food_burger-wallpaper-1280x720-1140x400.jpg'
+			}
 		}
 	];
 });

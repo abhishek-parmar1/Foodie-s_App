@@ -109,7 +109,7 @@ foodiesApp.controller('homeController',function($scope,restaurantsService){
 });
 
 // restaurants controller section
-foodiesApp.controller('restaurantController',function($scope,restaurantsService,$routeParams){
+foodiesApp.controller('restaurantController',function($scope,restaurantsService,$routeParams,$http){
     
     // take array of objects from service to get restaurant details
     var restaurants = restaurantsService.restaurants;
@@ -124,9 +124,22 @@ foodiesApp.controller('restaurantController',function($scope,restaurantsService,
         else
             $scope.famousDishFlag = false;
     }
+    // function take the image url and request to 
     $scope.getIngredients = function(famousDishUrl)
     {
-        console.log(famousDishUrl);
+        var data = '{"inputs":[{"data":{"image":{"url":"' + famousDishUrl + '"}}}]}';
+		$http({
+			'method': 'POST',
+			'url': 'https://api.clarifai.com/v2/models/bd367be194cf45149e75f01d59f77ba7/outputs',
+			'headers': {
+				'Authorization': 'Key b0da72a74c9743bcb90b9177240ac328',
+				'Content-Type': 'application/json'
+			},
+			'data': data
+		}).then(function(response) {
+			$scope.ingredients = response.data.outputs[0].data.concepts;
+            console.log($scope.ingredients);
+		});        
     }
 });
 

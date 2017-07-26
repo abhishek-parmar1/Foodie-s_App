@@ -1,0 +1,2 @@
+1> read  Clarifai documentation properly
+2> display ingredients

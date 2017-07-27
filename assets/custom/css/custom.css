@@ -1,5 +1,6 @@
 body{
     background-color: beige;
+    font-family: sans-serif;
 }
 .active{
     background-color: beige;
@@ -96,6 +97,36 @@ li[ng-repeat="ingredient in ingredients"]{
     margin: 5px;
     border-radius: 5px;
     letter-spacing: 3px;
+}
+.dish-veg,
+.dish-non-veg{
+    width: 33px;
+    height: 33px;
+    padding: 5px;
+    position: absolute;
+    top: 30%;
+    right: 15px
+}
+.dish-veg{
+    border: 2px solid green;
+}
+.dish-non-veg{
+    border: 2px solid red;
+}
+.dish-veg-circle,
+.dish-non-veg-circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.dish-veg-circle{
+    background-color: green;
+}
+.dish-non-veg-circle{
+    background-color: red;
+}
+.special-dish-name{
+    position: relative;
 }
 /* home and restaurant section ends starts*/
 /* footer style starts */

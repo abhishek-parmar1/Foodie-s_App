@@ -37,18 +37,18 @@ foodiesApp.service('restaurantsService', function() {
 		},
         {
             id : 1,
-			restaurantName : 'Too Indian',
+			restaurantName : 'Too Western',
             restaurantArea : 'Rajouri Garden',
 			restaurantLocation : 'A 39, Vishal Enclave, Rajouri Garden, New Delhi',
-			cuisines : 'Modern Indian',
+			cuisines : 'Modern',
 			costForTwo : 1200,
             hours : '12 Noon to 1 AM (Mon-Sun)',
             featuredIn : 'Newly opened, Live music, Arabian nights',
             image : 'source2.jpg',
             rating : 4.4,
 			famousDish: {
-				name: 'Bean Salad',
-				url: 'http://importmex.net/wp-content/uploads/2014/12/slide3.jpg'
+				name: 'McVeggie Burger',
+				url: 'http://nisataifesi.com/wp-content/uploads/2014/11/fast_food_burger-wallpaper-1280x720-1140x400.jpg'
 			}
 		},
         {
@@ -91,8 +91,8 @@ foodiesApp.service('restaurantsService', function() {
             image : 'source5.jpg',
             rating : 4.5,
 			famousDish: {
-				name: "McVeggie Burger",
-				url: 'http://nisataifesi.com/wp-content/uploads/2014/11/fast_food_burger-wallpaper-1280x720-1140x400.jpg'
+				name: "Fruit Pastery",
+				url: 'https://s-media-cache-ak0.pinimg.com/originals/f3/76/f0/f376f0ca8421d9bcdf3e89d57f02d496.jpg'
 			}
 		}
 	];
@@ -127,8 +127,14 @@ foodiesApp.controller('restaurantController',function($scope,restaurantsService,
             }
     // flag variable to show famous dish section
     $scope.famousDishFlag = false;
-    // 
+    // to store the ingredients name  
     $scope.ingredients = [];
+    //initially dish is not non-veg
+    $scope.nonVegDish = false;
+    //initially dish is not veg
+    $scope.vegDish = false;
+    //
+    var nonVegList = ['chicken','meat','beef','egg','fish',];
     // toggle flag variable to show famous dish section
     $scope.showFamousDish = function(){
         if($scope.famousDishFlag == false)
@@ -154,7 +160,12 @@ foodiesApp.controller('restaurantController',function($scope,restaurantsService,
             // store the ingredients name in a array
             for(var i=0; i<outputArrayOfIngredients.length; i++){
                 $scope.ingredients.push(outputArrayOfIngredients[i].name);
+                if(nonVegList.indexOf(outputArrayOfIngredients[i].name) != -1 && $scope.nonVegDish != true)
+                    $scope.nonVegDish = true;
             }
+            if(!$scope.nonVegDish)
+                $scope.vegDish = true;
+            
         }, function (xhr) {
         	console.log(xhr);
         });    

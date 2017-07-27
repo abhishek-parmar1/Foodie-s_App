@@ -103,8 +103,16 @@
             <div class="col-sm-12">
                 <div class="panel panel-default">
                   <!-- famous food name section starts here -->
-                  <div class="panel-heading text-center">
+                  <div class="panel-heading text-center special-dish-name">
                     <h2>{{restaurant.famousDish.name}}</h2>
+                    <div class="dish-veg" ng-if="vegDish">
+                        <div class="dish-veg-circle">
+                        </div>
+                    </div>
+                    <div class="dish-non-veg" ng-if="nonVegDish">
+                        <div class="dish-non-veg-circle">
+                        </div>
+                      </div>
                   </div>
                   <!-- famous food name section ends here -->
                   <!-- famous food detail section starts here -->

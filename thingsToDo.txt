@@ -1,3 +1,2 @@
 1> read  Clarifai documentation properly
-3> identify vegetarian or non vegetarian
 4> make responsive

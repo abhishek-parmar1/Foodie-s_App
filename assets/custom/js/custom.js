@@ -21,7 +21,8 @@ foodiesApp.config(function ($routeProvider){
 foodiesApp.service('restaurantsService', function() {
 	this.restaurants = [
 		{
-			restaurantName : 'Barbeque Nation',
+            id : 0,
+            restaurantName : 'Barbeque Nation',
             restaurantArea : 'Cannaught Place',
 			restaurantLocation : '2nd Floor, Munshilal Building, Block N, Outer Circle, Connaught                         Place, New Delhi',
 			cuisines : 'North Indian, Chinese',
@@ -35,6 +36,7 @@ foodiesApp.service('restaurantsService', function() {
 			}
 		},
         {
+            id : 1,
 			restaurantName : 'Too Indian',
             restaurantArea : 'Rajouri Garden',
 			restaurantLocation : 'A 39, Vishal Enclave, Rajouri Garden, New Delhi',
@@ -50,6 +52,7 @@ foodiesApp.service('restaurantsService', function() {
 			}
 		},
         {
+            id : 2,
 			restaurantName : 'Bukhara - ITC Maurya',
             restaurantArea : 'ITC Maurya, Chanakyapuri',
 			restaurantLocation : 'ITC Maurya, Chanakyapuri, New Delhi',
@@ -61,6 +64,7 @@ foodiesApp.service('restaurantsService', function() {
             rating : 4.2
 		},
         {
+            id : 3,
 			restaurantName : 'Diggin',
             restaurantArea : 'Anand Lok',
 			restaurantLocation : 'Anand Lok Shopping Centre, Opposite Gargi College, Anand Lok, New                       Delhi',
@@ -76,6 +80,7 @@ foodiesApp.service('restaurantsService', function() {
 			}
 		},
         {
+            id : 4,
 			restaurantName : 'The G.T. Road',
             restaurantArea : 'Cannaught Place',
 			restaurantLocation : 'M 39, Outer Circle, Connaught Place, New Delhi',
@@ -114,9 +119,16 @@ foodiesApp.controller('restaurantController',function($scope,restaurantsService,
     // take array of objects from service to get restaurant details
     var restaurants = restaurantsService.restaurants;
     // take object of current restaurant
-    $scope.restaurant = restaurants[$routeParams.restaurantIndex];
+    for(var i=0; i<restaurants.length; i++)
+        if(restaurants[i].id == $routeParams.restaurantIndex)
+            {
+                $scope.restaurant = restaurants[i];
+                break;
+            }
     // flag variable to show famous dish section
     $scope.famousDishFlag = false;
+    // 
+    $scope.ingredients = [];
     // toggle flag variable to show famous dish section
     $scope.showFamousDish = function(){
         if($scope.famousDishFlag == false)
@@ -124,7 +136,7 @@ foodiesApp.controller('restaurantController',function($scope,restaurantsService,
         else
             $scope.famousDishFlag = false;
     }
-    // function take the image url and request to 
+    // function take the image url and request to Clarifai Api and get the details of the food item
     $scope.getIngredients = function(famousDishUrl)
     {
         var data = '{"inputs":[{"data":{"image":{"url":"' + famousDishUrl + '"}}}]}';
@@ -132,15 +144,21 @@ foodiesApp.controller('restaurantController',function($scope,restaurantsService,
 			'method': 'POST',
 			'url': 'https://api.clarifai.com/v2/models/bd367be194cf45149e75f01d59f77ba7/outputs',
 			'headers': {
-				'Authorization': 'Key b0da72a74c9743bcb90b9177240ac328',
+				'Authorization': 'Key c6a5a929d46145c5925ed5aa041906b9',
 				'Content-Type': 'application/json'
 			},
 			'data': data
-		}).then(function(response) {
-			$scope.ingredients = response.data.outputs[0].data.concepts;
-            console.log($scope.ingredients);
-		});        
-    }
+		}).then(function (response) {
+            //store the response in the ingredients array
+			var outputArrayOfIngredients = response.data.outputs[0].data.concepts;
+            // store the ingredients name in a array
+            for(var i=0; i<outputArrayOfIngredients.length; i++){
+                $scope.ingredients.push(outputArrayOfIngredients[i].name);
+            }
+        }, function (xhr) {
+        	console.log(xhr);
+        });    
+    }    
 });
 
 

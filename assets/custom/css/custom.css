@@ -33,7 +33,7 @@ input.ng-dirty.ng-invalid{
     border: 2px solid red;
 }
 /* login form styles ends*/
-/* home section styles starts*/
+/* home and restaurant section styles starts*/
 #home-section-image{
     background-image: url(../../images/restaurants_bg.jpg);
     height: 400px;
@@ -82,7 +82,22 @@ div[class="row restaurant-list-section"],
     right: 15px;
     top: 15px;
 }
-/* home section ends starts*/
+.ingredients-section{
+    margin-top: 20px;
+}
+ul.ingredients-list{
+    padding: 0px;
+}
+li[ng-repeat="ingredient in ingredients"]{
+    display: inline-block;
+    padding: 8px;
+    background-color: orangered;
+    color: white;
+    margin: 5px;
+    border-radius: 5px;
+    letter-spacing: 3px;
+}
+/* home and restaurant section ends starts*/
 /* footer style starts */
 .navbar-fixed-bottom{
     background-color: black;

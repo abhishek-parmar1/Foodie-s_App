@@ -17,7 +17,7 @@
               <div class="panel-heading">
                   <div class="row">
                       <div class="col-sm-4">
-                          <img src="assets/images/restaurant_images/{{restaurant.image}}">
+                          <img ng-src="assets/images/restaurant_images/{{restaurant.image}}" width="195px" height="122px">
                       </div>
                       <div class="col-sm-8">
                           <h2 id="restaurant-name"><strong>{{ restaurant.restaurantName }}</strong></h2>
@@ -95,7 +95,7 @@
         <!-- famous food image section starts here -->
         <div class="row famous-food-image">
             <div class="col-sm-12">
-                <img src="assets/images/food_images/{{restaurant.image}}">
+                <img ng-src="assets/images/food_images/{{restaurant.image}}" width="1140px" height="400px">
             </div>
         </div>
         <!-- famous food image section ends here -->
@@ -123,8 +123,12 @@
                         </button>
                       </div>
                     </div>
-                    <div class="ingredients-section">
-
+                    <div class="ingredients-section" ng-if="ingredients">
+                        <ul class="ingredients-list">
+                            <li ng-repeat="ingredient in ingredients">
+                                <strong>{{ingredient}}</strong>
+                            </li>
+                        </ul>
                     </div>
                   </div>
                   <!-- famous food ingredients section ends here -->  

@@ -1,2 +1,0 @@
-1> read  Clarifai documentation properly
-4> make responsive

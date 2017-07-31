@@ -6,7 +6,8 @@ body{
     background-color: beige;
 }
 input,
-button{
+button,
+img{
     border-radius: 5px;
 }
 /* header styles starts */
@@ -38,13 +39,14 @@ input.ng-dirty.ng-invalid{
 #home-section-image{
     background-image: url(../../images/restaurants_bg.jpg);
     height: 400px;
+    width: 100%;
     background-position: center;
     position: relative;
 }
 #home-section-image-text{
     position: absolute;
-    top:130px;
-    left: 300px;
+    top:35%;
+    left: 25%;
     color: white;
     font-weight: bolder;
 }
@@ -135,3 +137,32 @@ li[ng-repeat="ingredient in ingredients"]{
     color: white;
 }
 /* footer style ends */
+
+@media (max-width: 768px){
+    .nav > li{
+        display: inline-block;
+    }
+    .navbar-nav{
+        margin: 0px;
+    }
+    #header-image{
+        margin-top: 0px;
+    }
+    #content{
+        margin-top: 120px;
+    }
+}
+@media (max-width: 360px){
+    .nav > li{
+        display: inline-block;
+    }
+    .navbar-nav{
+        margin: 0px;
+    }
+    #header-image{
+        margin-top: 0px;
+    }
+    #content{
+        margin-top: 170px;
+    }
+}
